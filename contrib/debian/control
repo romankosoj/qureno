@@ -1,0 +1,68 @@
+Source: qureno
+Section: utils
+Priority: optional
+Maintainer: Qureno Dev <dev@qureno.com>
+Uploaders: Qureno Dev <dev@qureno.com>
+Build-Depends: debhelper,
+ devscripts,
+ automake,
+ libtool,
+ bash-completion,
+ libdb4.8++-dev,
+ libssl-dev,
+ pkg-config,
+ libevent-dev,
+ libboost-system1.48-dev | libboost-system-dev (>> 1.35),
+ libboost-filesystem1.48-dev | libboost-filesystem-dev (>> 1.35),
+ libboost-program-options1.48-dev | libboost-program-options-dev (>> 1.35),
+ libboost-thread1.48-dev | libboost-thread-dev (>> 1.35),
+ libboost-test1.48-dev | libboost-test-dev (>> 1.35),
+ libboost-chrono1.48-dev | libboost-chrono-dev (>> 1.35),
+ qt4-qmake,
+ libqt4-dev,
+ libqrencode-dev,
+ libprotobuf-dev, protobuf-compiler,
+ python
+Standards-Version: 3.9.2
+Homepage: https://qureno.com/
+Vcs-Git: git://github.com/qureno/qureno.git
+Vcs-Browser: https://github.com/qureno/qureno
+
+Package: qurenod
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - daemon
+ Qureno is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Qureno uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Qureno Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides the daemon, qurenod, and the CLI tool
+ qureno-cli to interact with the daemon.
+
+Package: qureno-qt
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer network based digital currency - Qt GUI
+ Qureno is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Qureno uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Qureno Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides Qureno-Qt, a GUI for Qureno based on Qt.
+
+Package: qureno-tx
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone transaction tool
+ Qureno is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Qureno uses peer-to-peer
+ technology to operate with no central authority: managing transactions
+ and issuing money are carried out collectively by the network. Qureno Core
+ is the name of the open source software which enables the use of this currency.
+ .
+ This package provides qureno-tx, a command-line transaction creation
+ tool which can be used without a qureno daemon.  Some means of
+ exchanging minimal transaction data with peers is still required.

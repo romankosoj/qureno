@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/qureno_bg.qm</file>
+        <file alias="de">locale/qureno_de.qm</file>
+        <file alias="en">locale/qureno_en.qm</file>
+        <file alias="es">locale/qureno_es.qm</file>
+        <file alias="fi">locale/qureno_fi.qm</file>
+        <file alias="fr">locale/qureno_fr.qm</file>
+        <file alias="it">locale/qureno_it.qm</file>
+        <file alias="ja">locale/qureno_ja.qm</file>
+        <file alias="pl">locale/qureno_pl.qm</file>
+        <file alias="pt">locale/qureno_pt.qm</file>
+        <file alias="ru">locale/qureno_ru.qm</file>
+        <file alias="sk">locale/qureno_sk.qm</file>
+        <file alias="sv">locale/qureno_sv.qm</file>
+        <file alias="vi">locale/qureno_vi.qm</file>
+        <file alias="zh_CN">locale/qureno_zh_CN.qm</file>
+        <file alias="zh_TW">locale/qureno_zh_TW.qm</file>
+    </qresource>
+</RCC>

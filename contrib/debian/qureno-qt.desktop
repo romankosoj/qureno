@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Qureno
+Comment=Qureno P2P Cryptocurrency
+Comment[fr]=Qureno, monnaie virtuelle cryptographique pair a pair
+Comment[tr]=Qureno, esten ese kriptografik sanal para birimi
+Exec=qureno-qt %u
+Terminal=false
+Type=Application
+Icon=qureno128
+MimeType=x-scheme-handler/qureno;
+Categories=Office;Finance;

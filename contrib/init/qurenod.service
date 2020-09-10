@@ -1,0 +1,22 @@
+[Unit]
+Description=Qureno's distributed currency daemon
+After=network.target
+
+[Service]
+User=qureno
+Group=qureno
+
+Type=forking
+PIDFile=/var/lib/qurenod/qurenod.pid
+ExecStart=/usr/bin/qurenod -daemon -pid=/var/lib/qurenod/qurenod.pid \
+-conf=/etc/qureno/qureno.conf -datadir=/var/lib/qurenod -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+usr/local/bin/qureno-qt usr/bin
+share/pixmaps/qureno32.xpm usr/share/pixmaps
+share/pixmaps/qureno16.xpm usr/share/pixmaps
+share/pixmaps/qureno128.png usr/share/pixmaps
+debian/qureno-qt.desktop usr/share/applications
+debian/qureno-qt.protocol usr/share/kde4/services/
