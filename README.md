@@ -6,7 +6,7 @@ Qureno Core staging tree 0.13.0.1 (algorithm: x33)
 
 ###### Resources:
 - Soon! Site: https://qureno.com  
-- Soon! Explorer: https://chain.qureno.com  
+- Soon! Explorer: https://explorer.qureno.com  
 - Soon! Masternode installer: https://github.com/qureno/qureno-masternode  
 - Soon! Masternode guide: https://github.com/qureno/qureno-masternode-guide  
 - Soon! How to setup a Masternode: https://github.com/qureno/qureno/blob/master/MASTERNODE.md
