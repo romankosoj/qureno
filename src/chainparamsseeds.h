@@ -8,7 +8,9 @@
  * IPv4 as well as onion addresses are wrapped inside a IPv6 address accordingly.
  */
  // ***TODO*** fix generate-seeds.py and REGENERATE
-static SeedSpec6 pnSeed6_main[] = { };
+static SeedSpec6 pnSeed6_main[] = { 
+	{{0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0x94,0xfb,0x50,0xe2}, 9779},
+};
 
 static SeedSpec6 pnSeed6_test[] = { };
 
