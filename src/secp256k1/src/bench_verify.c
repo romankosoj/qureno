@@ -11,6 +11,13 @@
 #include "util.h"
 #include "bench.h"
 
+#ifdef ENABLE_OPENSSL_TESTS
+#include <openssl/bn.h>
+#include <openssl/ecdsa.h>
+#include <openssl/obj_mac.h>
+#endif
+
+
 typedef struct {
     secp256k1_context *ctx;
     unsigned char msg[32];
@@ -19,13 +26,16 @@ typedef struct {
     size_t siglen;
     unsigned char pubkey[33];
     size_t pubkeylen;
+#ifdef ENABLE_OPENSSL_TESTS
+    EC_GROUP* ec_group;
+#endif
 } benchmark_verify_t;
 
-static void benchmark_verify(void* arg) {
+static void benchmark_verify(void* arg, int iters) {
     int i;
     benchmark_verify_t* data = (benchmark_verify_t*)arg;
 
-    for (i = 0; i < 20000; i++) {
+    for (i = 0; i < iters; i++) {
         secp256k1_pubkey pubkey;
         secp256k1_ecdsa_signature sig;
         data->sig[data->siglen - 1] ^= (i & 0xFF);
@@ -40,11 +50,43 @@ static void benchmark_verify(void* arg) {
     }
 }
 
+#ifdef ENABLE_OPENSSL_TESTS
+static void benchmark_verify_openssl(void* arg, int iters) {
+    int i;
+    benchmark_verify_t* data = (benchmark_verify_t*)arg;
+
+    for (i = 0; i < iters; i++) {
+        data->sig[data->siglen - 1] ^= (i & 0xFF);
+        data->sig[data->siglen - 2] ^= ((i >> 8) & 0xFF);
+        data->sig[data->siglen - 3] ^= ((i >> 16) & 0xFF);
+        {
+            EC_KEY *pkey = EC_KEY_new();
+            const unsigned char *pubkey = &data->pubkey[0];
+            int result;
+
+            CHECK(pkey != NULL);
+            result = EC_KEY_set_group(pkey, data->ec_group);
+            CHECK(result);
+            result = (o2i_ECPublicKey(&pkey, &pubkey, data->pubkeylen)) != NULL;
+            CHECK(result);
+            result = ECDSA_verify(0, &data->msg[0], sizeof(data->msg), &data->sig[0], data->siglen, pkey) == (i == 0);
+            CHECK(result);
+            EC_KEY_free(pkey);
+        }
+        data->sig[data->siglen - 1] ^= (i & 0xFF);
+        data->sig[data->siglen - 2] ^= ((i >> 8) & 0xFF);
+        data->sig[data->siglen - 3] ^= ((i >> 16) & 0xFF);
+    }
+}
+#endif
+
 int main(void) {
     int i;
     secp256k1_pubkey pubkey;
     secp256k1_ecdsa_signature sig;
     benchmark_verify_t data;
+
+    int iters = get_iters(20000);
 
     data.ctx = secp256k1_context_create(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY);
 
@@ -61,7 +103,12 @@ int main(void) {
     data.pubkeylen = 33;
     CHECK(secp256k1_ec_pubkey_serialize(data.ctx, data.pubkey, &data.pubkeylen, &pubkey, SECP256K1_EC_COMPRESSED) == 1);
 
-    run_benchmark("ecdsa_verify", benchmark_verify, NULL, NULL, &data, 10, 20000);
+    run_benchmark("ecdsa_verify", benchmark_verify, NULL, NULL, &data, 10, iters);
+#ifdef ENABLE_OPENSSL_TESTS
+    data.ec_group = EC_GROUP_new_by_curve_name(NID_secp256k1);
+    run_benchmark("ecdsa_verify_openssl", benchmark_verify_openssl, NULL, NULL, &data, 10, iters);
+    EC_GROUP_free(data.ec_group);
+#endif
 
     secp256k1_context_destroy(data.ctx);
     return 0;
