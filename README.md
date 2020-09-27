@@ -1,4 +1,4 @@
-Qureno Core staging tree 0.13.0.1 (algorithm: x33)
+Qureno Core staging tree 0.13.0.2 (random selection of one of the unique algorithms: x33, x34, x35, x36, x37, x38, x39, x40, x41, x42, x43, x44, x45, x46, x47, x48, x49)
 ===============================
 
 
@@ -8,6 +8,7 @@ Qureno Core staging tree 0.13.0.1 (algorithm: x33)
 - Site: https://qureno.com  
 - Explorer: https://explorer.qureno.com  
 - Discord: https://discord.gg/NZ4K3fv
+- Bitcointalk: https://bitcointalk.org/index.php?topic=5275447.0
 - Soon! Masternode installer: https://github.com/qureno/qureno-masternode  
 - Soon! Masternode guide: https://github.com/qureno/qureno-masternode-guide  
 - Soon! How to setup a Masternode: https://github.com/qureno/qureno/blob/master/MASTERNODE.md

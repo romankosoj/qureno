@@ -12,7 +12,7 @@
 
 uint256 CBlockHeader::GetHash() const
 {
-    return HashX33(BEGIN(nVersion), END(nNonce));
+    return QRNHash(BEGIN(nVersion), END(nNonce), hashPrevBlock.ToString(), nTime);
 }
 
 std::string CBlock::ToString() const

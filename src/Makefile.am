@@ -317,7 +317,7 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha512.cpp \
   crypto/sha512.h
 
-# x17
+# QRNHash
 crypto_libbitcoin_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
