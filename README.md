@@ -7,13 +7,12 @@ All 17 algorithms are developed by Qureno developers.
 ## Development Resources
 
 ###### Resources:
-- Site: https://qureno.com  
-- Explorer: https://explorer.qureno.com  
-- Discord: https://discord.gg/NZ4K3fv
+- Site: https://qureno.com/
+- Block Explorer: https://explorer.qureno.com/
+- Github: https://github.com/qureno/qureno
 - Bitcointalk: https://bitcointalk.org/index.php?topic=5275447.0
-- Soon! Masternode installer: https://github.com/qureno/qureno-masternode  
-- Soon! Masternode guide: https://github.com/qureno/qureno-masternode-guide  
-- Soon! How to setup a Masternode: https://github.com/qureno/qureno/blob/master/MASTERNODE.md
+- Discord: https://discord.gg/NZ4K3fv
+- QRN listed on Bitsails: https://www.bitsails.com/market?MarketName=BTC-QRN
 
 License
 -------
